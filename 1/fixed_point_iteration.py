@@ -1,7 +1,13 @@
 import math
 
+
 def f(x):
     return 3*math.sin(x)-1
+
+
+def derivative(x):
+    return 3*math.cos(x)
+
 
 if __name__ == '__main__':
     print('Fixed point iteration')
@@ -33,3 +39,5 @@ if __name__ == '__main__':
         print("i: %d, val: %f, |p - p0|: %f" % (i, val, _precision))
 
     print("Found in %d iterations" % (len(result_array)))
+
+    print(abs(derivative(p)))
