@@ -15,12 +15,12 @@ def validate_input_for_bisection_method(a, b):
     return (is_pos(f(a)) and not(is_pos(f(b)))) or (is_pos(f(b)) and not(is_pos(f(a))))
 
 
-ACCURACY = 0.1
+GRAPH_ACCURACY = 0.1
 
 
 def create_function_points(func, start, end):
     points = []
-    for number in np.arange(start, end, ACCURACY):
+    for number in np.arange(start, end, GRAPH_ACCURACY):
         points.append(func(number))
     return points
 
@@ -33,7 +33,7 @@ def draw_graph(start, end, res, func):
     x = [x[2] for x in res]
     y = [f(x[2]) for x in res]
     indexes = np.arange(len(res))
-    plt.plot(np.arange(start, end, ACCURACY), points)
+    plt.plot(np.arange(start, end, GRAPH_ACCURACY), points)
     for index in indexes:
         plt.scatter(x, y, marker='x', color='red')
         plt.text(x[index], y[index], index, fontsize=9)
@@ -43,7 +43,6 @@ def draw_graph(start, end, res, func):
 
 error_val = 0.0000001
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     cycles = 100
     result_array = []
