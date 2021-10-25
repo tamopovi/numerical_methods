@@ -4,7 +4,7 @@ import numpy as np
 
 
 def f(x):
-    return 3*math.sin(x)-1
+    return 3*math.sin(x)-1 - x
 
 
 def is_pos(x):
@@ -28,7 +28,7 @@ def create_function_points(func, start, end):
 def draw_graph(start, end, res, func):
     points = create_function_points(func, start, end)
     plt.axhline(y=0, color='r', linestyle=':')
-    print( [x[2] for x in res])
+    print([x[2] for x in res])
 
     x = [x[2] for x in res]
     y = [f(x[2]) for x in res]
@@ -74,10 +74,10 @@ if __name__ == '__main__':
 
     print("Calcualted in: %d cycles" % (100-cycles))
 
-
-    for i,iteration in (enumerate(result_array)):
-        print("i: %d, a: %f, b: %f, c: %f" % (i,iteration[0],iteration[1],iteration[2]))
-    min=result_array[0][0]
-    max=result_array[0][1]
+    for i, iteration in (enumerate(result_array)):
+        print("i: %d, a: %f, b: %f, c: %f" %
+              (i, iteration[0], iteration[1], iteration[2]))
+    min = result_array[0][0]
+    max = result_array[0][1]
 
     draw_graph(min, max, result_array, f)
